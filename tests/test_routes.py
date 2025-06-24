@@ -199,3 +199,11 @@ class TestAccountService(TestCase):
         """It should not Delete an Account that does not exist"""
         response = self.client.delete(f"{BASE_URL}/0")
         self.assertEqual(response.status_code, status.HTTP_404_NOT_FOUND)
+
+    def test_get_account_list(self):
+        """It should Get a list of Accounts"""
+        self._create_accounts(5)
+        # send a self.client.get() request to the BASE_URL
+        # assert that the resp.status_code is status.HTTP_200_OK
+        # get the data from resp.get_json()
+        # assert that the len() of the data is 5 (the number of accounts you created)
